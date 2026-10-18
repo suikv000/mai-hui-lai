@@ -1,0 +1,46 @@
+'use strict';
+const $ = id => document.getElementById(id);
+const storageKey = 'mai-hui-lai:v1';
+let data, state = {votes: [], nominations: [], votesMigrated: false}, toastTimer;
+let voteCounts = null, voteBusy = false, voteError = "";
+const tag = p => p.status.includes('用户提名') ? 'pending' : p.status.includes('回归公告') ? 'returned' : 'historical';
+const labels = {pending: '○ 待考证 · 用户记忆', returned: '↗ 有区域回归公告', historical: '✓ 有历史销售出处'};
+function node(tagName, text, cls) {const n = document.createElement(tagName); if (text !== undefined) n.textContent = text; if(cls)n.className=cls; return n;}
+function toast(text) {$('toast').textContent=text;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4200);}
+function save() {try{localStorage.setItem(storageKey,JSON.stringify(state));return true;}catch{toast('浏览器无法保存，操作仅在本次页面有效。');return false;}}
+function load() {try{const x=JSON.parse(localStorage.getItem(storageKey));if(x&&Array.isArray(x.votes)&&Array.isArray(x.nominations)){state.votesMigrated=x.votesMigrated===true;state.votes=[...new Set(x.votes.filter(id=>data.products.some(p=>p.id===id)))];state.nominations=x.nominations.filter(n=>n&&['name','year','city','memory','id'].every(k=>typeof n[k]==='string')).slice(0,100);}}catch{toast('本机记录无法读取，已打开空白体验；可继续使用。');}}
+async function voteRequest(path, payload) {
+  const r=await fetch(path,{method:payload?'POST':'GET',headers:payload?{'Content-Type':'application/json'}:{},body:payload?JSON.stringify(payload):undefined,signal:AbortSignal.timeout(15000)});
+  const x=await r.json(); if(!r.ok)throw Error(x.error||'心愿服务未完成请求。');
+  if(!x.counts||!Array.isArray(x.votes)||data.products.some(p=>!Number.isInteger(x.counts[p.id])||x.counts[p.id]<0)||x.votes.some(id=>!data.products.some(p=>p.id===id)))throw Error('心愿数据格式异常，请重试。');
+  return x;
+}
+function acceptVotes(x) {voteCounts=x.counts;state.votes=x.votes;voteError='';}
+async function refreshVotes() {
+  if(voteBusy)return;voteBusy=true;render();
+  try {
+    let x=await voteRequest('/api/votes');
+    if(!state.votesMigrated){x=await voteRequest('/api/votes/import',{productIds:state.votes});state.votesMigrated=true;}
+    acceptVotes(x);save();
+  }catch(e){voteCounts=null;voteError=e.message||'心愿数暂时无法读取，请重试。';}
+  finally{voteBusy=false;render();}
+}
+async function toggleVote(p) {
+  if(voteBusy||voteCounts===null)return;
+  const desired=!state.votes.includes(p.id);voteBusy=true;render();
+  try{acceptVotes(await voteRequest('/api/votes',{productId:p.id,voted:desired}));save();toast(desired?'心愿已计入当前服务，可随时撤回。':'已撤回这份心愿。');}
+  catch(e){voteCounts=null;voteError=e.message||'保存未确认，请刷新心愿数核对。';toast('保存未确认，请点击刷新心愿数核对；原本机记录保留。');}
+  finally{voteBusy=false;render();}
+}
+function visual(p) {const v=node('div',undefined,'card-visual');const kind=p.category==='汉堡'?'burger':p.category==='派'?'pie':p.category==='小食'?'fries':p.category==='甜品'?'icecream':p.category.includes('甜点')?'cake':'drink';v.classList.add('visual-'+kind);v.append(node('span',p.id.replace('MHL','NO. '),'number'));const art=node('div',undefined,'food-art '+kind);art.setAttribute('aria-hidden','true');for(let i=0;i<5;i++)art.append(node('i'));v.append(art,node('span',p.category,'category-sticker'),node('span','示意插画 · 非产品实拍','illustration-note'));return v;}
+function render() {const q=$('search').value.trim().toLowerCase(),category=$('category').value,status=$('status').value;const items=data.products.filter(p=>(!q||Object.values(p).join(' ').toLowerCase().includes(q))&&(!category||p.category===category)&&(!status||(status==='voted'?state.votes.includes(p.id):tag(p)===status)));if($('sort').value==='wishes'&&voteCounts!==null)items.sort((a,b)=>voteCounts[b.id]-voteCounts[a.id]);$('cards').replaceChildren();items.forEach(p=>{const card=node('article',undefined,'card');card.append(visual(p));const b=node('div',undefined,'card-body');b.append(node('span',labels[tag(p)],'badge '+tag(p)),node('h3',p.name),node('p',p.historicalEvidence==='同上'?'官方 2026-05-01 宣布在 15 城 44 店常驻回归':p.historicalEvidence));b.append(node('p',voteCounts===null?'心愿数待同步':`${voteCounts[p.id]} 个心愿`,'wish-count'));const actions=node('div',undefined,'card-actions');const detail=node('button','翻阅档案 ↗','detail-link');detail.type='button';detail.setAttribute('aria-label','查看'+p.name+'档案');detail.onclick=()=>showDetail(p);const voted=state.votes.includes(p.id),vote=node('button',voted?'♥ 已留票 · 撤回':'♡ 想它回来','vote');vote.type='button';vote.disabled=voteBusy||voteCounts===null;vote.setAttribute('aria-pressed',String(voted));vote.setAttribute('aria-label',p.name+'：'+(voted?'撤回心愿':'留下一份心愿'));vote.onclick=()=>toggleVote(p);actions.append(detail,vote);b.append(actions);card.append(b);$('cards').append(card);});$('count').textContent=voteCounts===null?`${items.length} 份档案 · ${voteError?'心愿数暂不可用':'正在同步心愿数…'}`:`${items.length} 份档案 · 当前服务累计 ${Object.values(voteCounts).reduce((a,b)=>a+b,0)} 个心愿`;$('vote-status').textContent=voteError;$('vote-status').hidden=!voteError;$('refresh-votes').disabled=voteBusy;$('empty').hidden=items.length>0;}
+function showDetail(p) {const box=$('detail-content');box.replaceChildren(node('span',labels[tag(p)],'badge '+tag(p)),node('h2',p.name),node('h4','历史记录'),node('p',p.historicalEvidence==='同上'?'官方 2026-05-01 宣布在 15 城 44 店常驻回归（与香草风味奶昔同一公告）。':p.historicalEvidence),node('h4','证据状态'),node('p',p.status),node('h4','整理备注'),node('p',p.notes),node('h4','资料出处'));const refs=p.sourceRefs.match(/S\d+/g)||[];refs.forEach(id=>{const s=data.sources.find(s=>s.id===id);if(!s)return;try{const url=new URL(s.url);if(url.protocol!=='https:')return;const a=node('a',`${id} · ${s.title} ↗`);a.href=url.href;a.target='_blank';a.rel='noopener noreferrer';box.append(a);}catch{}});if(!refs.length)box.append(node('p','用户提供的回忆，尚无可对应的公开资料。'));box.append(node('p','历史推广期不是首次上市或最终停售时间。当前供应须另向具体门店核实。','quiet'));$('detail').showModal();}
+function renderNominations() {$('nominations').replaceChildren();state.nominations.forEach(n=>{const row=node('div',undefined,'saved-memory');row.append(node('strong',n.name+' · 待考证'),node('p',[n.year,n.city,n.memory].filter(Boolean).join(' / ')));const remove=node('button','删除本机提名');remove.type='button';remove.onclick=()=>{state.nominations=state.nominations.filter(x=>x.id!==n.id);save();renderNominations();};row.append(remove);$('nominations').append(row);});}
+async function exportList() {const names=data.products.filter(p=>state.votes.includes(p.id));const lines=['麦回来！我的味觉愿望清单','我的匿名浏览器心愿清单；未发送给麦当劳。','',...names.map(p=>`♡ ${p.name}\n  ${p.status}\n  ${p.historicalEvidence}`),'',...state.nominations.map(n=>`待考证提名：${n.name} / ${n.year} / ${n.city}\n${n.memory}`),'','历史销售不等于已停售，供应以具体门店为准。'];if(!names.length&&!state.nominations.length){toast('先留一票或写一份提名，再导出你的清单。');return;}const text=lines.join('\n');try{await navigator.clipboard.writeText(text);toast('愿望清单已复制，可自行分享。');}catch{const url=URL.createObjectURL(new Blob([text],{type:'text/plain;charset=utf-8'}));const a=node('a');a.href=url;a.download='麦回来-我的愿望清单.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('已导出文字清单。');}}
+$('detail').querySelector('.close').onclick=()=>$('detail').close();$('detail').addEventListener('click',e=>{if(e.target===$('detail')){const r=$('detail').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('detail').close();}});
+$('nomination-form').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);const n={id:crypto.randomUUID(),name:String(f.get('name')).trim().slice(0,80),year:String(f.get('year')).trim().slice(0,40),city:String(f.get('city')).trim().slice(0,80),memory:String(f.get('memory')).trim().slice(0,600)};if(!n.name){toast('请先写一个你记得的名字。');return;}if(state.nominations.length>=100){toast('本机最多保留 100 份提名，请先导出并整理已有记录。');return;}state.nominations.unshift(n);const saved=save();renderNominations();e.target.reset();if(saved)toast('回忆已存本机，等待更多线索；尚未提交到任何平台。');};
+$('export').onclick=exportList;
+$('refresh-votes').onclick=refreshVotes;
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&data)refreshVotes();});
+$('calendar').onclick=async()=>{const b=$('calendar');b.disabled=true;b.textContent='正在读取官方活动…';$('live-result').hidden=false;$('live-result').textContent='连接官方 MCP；首次查询包含初始化与工具发现。';try{const r=await fetch('/api/calendar',{method:'POST',signal:AbortSignal.timeout(75000)});const x=await r.json();$('live-result').textContent=r.ok?`${x.scope}\n查询时间：${x.queriedAt}\n\n${JSON.stringify(x.result,null,2)}`:x.error;}catch{$('live-result').textContent='查询未完成：服务连接失败或超时。请确认本地服务仍在运行，稍后重试。';}finally{b.disabled=false;b.textContent='查询官方当月活动 ↗';}};
+fetch('/data/products.json').then(r=>{if(!r.ok)throw Error();return r.json();}).then(x=>{data=x;load();$('total').textContent=data.products.length;$('historical').textContent=data.products.filter(p=>tag(p)==='historical').length;$('returned').textContent=data.products.filter(p=>tag(p)==='returned').length;$('checked').textContent=data.checkedAt;[...new Set(data.products.map(p=>p.category))].forEach(c=>{const o=node('option',c);o.value=c;$('category').append(o);});['search','category','status','sort'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',render));render();renderNominations();refreshVotes();}).catch(()=>{$('count').textContent='档案加载失败，请从 Python 本地服务打开页面后重试。';});

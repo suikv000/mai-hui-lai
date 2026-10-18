@@ -1,0 +1,441 @@
+{
+  "checkedAt": "2026-10-18",
+  "scope": "中国大陆",
+  "notice": "历史销售记录不等于已下架证明；当前供应须另核实。",
+  "products": [
+    {
+      "id": "MHL001",
+      "name": "麦咖啡热带水果冰桔茶（用户提供名称）",
+      "category": "饮品",
+      "historicalEvidence": "用户回忆：2016年已售，约2020年似乎不再见到（尚未独立核实）",
+      "status": "用户提名，尚未找到可对应的可靠公开资料",
+      "notes": "2016不是已证实首发年，2020不是已证实停售年；城市未知。用户建议检索名：麦咖啡冰橘茶。已按2009—2018年范围检索，仍无确切匹配；该范围不代表销售期，保留原名继续查证。",
+      "sourceRefs": "本次用户提名"
+    },
+    {
+      "id": "MHL002",
+      "name": "玄米茶甜筒",
+      "category": "甜品",
+      "historicalEvidence": "官方明确2017-11-29—12-26推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "已由系列线索落实为具体甜筒；不当作首发日期",
+      "sourceRefs": "S01、S13"
+    },
+    {
+      "id": "MHL003",
+      "name": "那么大红豆珍珠奶茶",
+      "category": "饮品",
+      "historicalEvidence": "2019-01-16—2019-02-19推广，部分大陆餐厅",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "首批饮品候选",
+      "sourceRefs": "S02"
+    },
+    {
+      "id": "MHL004",
+      "name": "红豆风味豆浆",
+      "category": "早餐饮品",
+      "historicalEvidence": "2019-01-16—2019-04-16推广，早餐时段",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "早餐回忆候选；与奶茶分开",
+      "sourceRefs": "S02"
+    },
+    {
+      "id": "MHL005",
+      "name": "金玉良缘红豆派",
+      "category": "派",
+      "historicalEvidence": "2019-01-16—2019-02-19推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "季节限定候选；不与所有红豆派版本合并",
+      "sourceRefs": "S02"
+    },
+    {
+      "id": "MHL006",
+      "name": "抹茶黑蜜麻薯派",
+      "category": "派",
+      "historicalEvidence": "官方回顾记载2025年派DAY推出",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "首批限定口味候选",
+      "sourceRefs": "S03"
+    },
+    {
+      "id": "MHL007",
+      "name": "樱花麻薯绿茶风味三角派",
+      "category": "派",
+      "historicalEvidence": "官方回顾记载2023年派DAY推出",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "首批限定口味候选",
+      "sourceRefs": "S03"
+    },
+    {
+      "id": "MHL008",
+      "name": "鲜香椒盐味那么大鸡排",
+      "category": "小食",
+      "historicalEvidence": "2018-11-28—2018-12-25推广",
+      "status": "该口味历史销售已证实，当前供应未知",
+      "notes": "精确到椒盐口味；不把整个鸡排品类标成下架",
+      "sourceRefs": "S04"
+    },
+    {
+      "id": "MHL009",
+      "name": "樱花小红莓华夫筒",
+      "category": "甜品",
+      "historicalEvidence": "2020-03-25官方文章；活动日期03-24—03-30",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "正文名为主；保留标题“樱花红莓华夫筒”作检索别名",
+      "sourceRefs": "S05"
+    },
+    {
+      "id": "MHL010",
+      "name": "桃花口味圆筒冰淇淋",
+      "category": "甜品",
+      "historicalEvidence": "2016-01-27—2016-02-22推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "可做怀旧展示；不沿用旧广告中的运势叙事",
+      "sourceRefs": "S06"
+    },
+    {
+      "id": "MHL011",
+      "name": "好运鸡柳",
+      "category": "小食",
+      "historicalEvidence": "官方优惠期2016-01-27—2016-02-22；注明限量150万份",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "保留历史产品名；不把优惠期当首次上市或最终停售时间",
+      "sourceRefs": "S06"
+    },
+    {
+      "id": "MHL012",
+      "name": "香草风味奶昔",
+      "category": "饮品",
+      "historicalEvidence": "官方2026-05-01宣布在15城44店常驻回归",
+      "status": "有区域回归公告；今日具体门店待查",
+      "notes": "“已经回来”示范；不进入统一已下架榜",
+      "sourceRefs": "S07"
+    },
+    {
+      "id": "MHL013",
+      "name": "草莓风味奶昔",
+      "category": "饮品",
+      "historicalEvidence": "同上",
+      "status": "有区域回归公告；今日具体门店待查",
+      "notes": "与香草分条，以便记录不同口味愿望",
+      "sourceRefs": "S07"
+    },
+    {
+      "id": "MHL014",
+      "name": "海南小青桔雪冰",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2023-06-28—09-05推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "含海南小青桔原浆；雪冰产品，不等同冰桔茶",
+      "sourceRefs": "S08"
+    },
+    {
+      "id": "MHL015",
+      "name": "阳山水蜜桃雪冰",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2023-06-28—09-05推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "含阳山水蜜桃原浆，官方注明主要产地江苏阳山",
+      "sourceRefs": "S08"
+    },
+    {
+      "id": "MHL016",
+      "name": "大菠浪水果茶",
+      "category": "水果茶",
+      "historicalEvidence": "2018-05-26起推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "菠萝与椰果组合；部分餐厅及甜品站供应，不标成麦咖啡",
+      "sourceRefs": "S09"
+    },
+    {
+      "id": "MHL017",
+      "name": "香芒芒水果茶",
+      "category": "水果茶",
+      "historicalEvidence": "2018-05-26起推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "芒果片搭配百香果芒果果酱；不等同用户提名冰桔茶",
+      "sourceRefs": "S09"
+    },
+    {
+      "id": "MHL018",
+      "name": "甜柚柚水果茶",
+      "category": "水果茶",
+      "historicalEvidence": "2018-05-26起推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "葡萄柚搭配茉莉风味绿茶；部分餐厅及甜品站供应",
+      "sourceRefs": "S09"
+    },
+    {
+      "id": "MHL019",
+      "name": "栗香风味拿铁",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2016-01-02有官方记录；2017-12-27—2018-02-27再次推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "栗子风味咖啡；存在多个推广年份，不写2018首发",
+      "sourceRefs": "S10、S11"
+    },
+    {
+      "id": "MHL020",
+      "name": "栗香风味拿铁雪冰",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2018-01-10文章；推广期2017-12-27—2018-02-27",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "栗子风味与拿铁雪冰组合；2016另有栗香雪冰记录，版本同一性待核",
+      "sourceRefs": "S10、S11"
+    },
+    {
+      "id": "MHL021",
+      "name": "栗子挞",
+      "category": "麦咖啡甜点",
+      "historicalEvidence": "2017-12-27—2018-02-27推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "曾与栗香风味拿铁组成季节搭配",
+      "sourceRefs": "S10"
+    },
+    {
+      "id": "MHL022",
+      "name": "荔枝口味乌龙泡泡茶",
+      "category": "饮品",
+      "historicalEvidence": "2016-11-29官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "乌龙茶风味的荔枝冷饮；官网描述带水果冰",
+      "sourceRefs": "S12"
+    },
+    {
+      "id": "MHL023",
+      "name": "荔枝椰果口味暖饮",
+      "category": "饮品",
+      "historicalEvidence": "2016-11-29官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "荔枝与椰果口味热饮；与泡泡茶分条",
+      "sourceRefs": "S12"
+    },
+    {
+      "id": "MHL024",
+      "name": "超级培根鸡排堡",
+      "category": "汉堡",
+      "historicalEvidence": "2017-11-29—12-26推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "鸡排、培根与蒸蛋；正义联盟推广产品，图片另核权利",
+      "sourceRefs": "S13"
+    },
+    {
+      "id": "MHL025",
+      "name": "暗夜黑胡椒鸡腿堡",
+      "category": "汉堡",
+      "historicalEvidence": "2017-11-29—12-26推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "板烧鸡腿肉搭配薯饼与黑椒酱；正义联盟推广产品",
+      "sourceRefs": "S13"
+    },
+    {
+      "id": "MHL026",
+      "name": "超级肉酱薯条",
+      "category": "小食",
+      "historicalEvidence": "2017-11-29官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "茄汁肉粒风味薯条；本文未将通用活动期推断为精确供应期",
+      "sourceRefs": "S13"
+    },
+    {
+      "id": "MHL027",
+      "name": "美洲风味三文鱼汉堡",
+      "category": "汉堡",
+      "historicalEvidence": "2016-08-14官方文章，优惠至08-23",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "三文鱼汉堡；优惠覆盖地区有多项排除，不写全国统一供应",
+      "sourceRefs": "S14"
+    },
+    {
+      "id": "MHL028",
+      "name": "黄金桂乌龙奶茶",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2016-11-09—12-06推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "乌龙茶与奶泡，桂花香气",
+      "sourceRefs": "S15"
+    },
+    {
+      "id": "MHL029",
+      "name": "黄金桂乌龙奶茶雪冰",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2016-11-09—12-06推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "黄金桂乌龙奶茶的雪冰版本，与热饮分条",
+      "sourceRefs": "S15"
+    },
+    {
+      "id": "MHL030",
+      "name": "桂花雪梨酸奶慕斯杯",
+      "category": "麦咖啡甜点",
+      "historicalEvidence": "2016-11-09—12-06推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "雪梨果粒、桂花酱与酸奶风味慕斯",
+      "sourceRefs": "S15"
+    },
+    {
+      "id": "MHL031",
+      "name": "太妃曲奇风味拿铁",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2016-09-28官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "当年与榴莲千层蛋糕搭配推广；首次上市时间待核",
+      "sourceRefs": "S16"
+    },
+    {
+      "id": "MHL032",
+      "name": "榴莲千层蛋糕",
+      "category": "麦咖啡甜点",
+      "historicalEvidence": "2016-09-28官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "榴莲奶油与可丽饼层叠；不将后续同名版本自动合并",
+      "sourceRefs": "S16"
+    },
+    {
+      "id": "MHL033",
+      "name": "桃花风味拿铁",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2016-03-09官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "春季桃花风味咖啡，历史广告明确名称",
+      "sourceRefs": "S17"
+    },
+    {
+      "id": "MHL034",
+      "name": "桃花风味马卡龙",
+      "category": "麦咖啡甜点",
+      "historicalEvidence": "2016-03-09官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "曾与桃花风味拿铁搭配推广",
+      "sourceRefs": "S17"
+    },
+    {
+      "id": "MHL035",
+      "name": "大吉岭风味奶茶",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2015-08-26—10-21推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "新潮亚洲茶系列之一",
+      "sourceRefs": "S18"
+    },
+    {
+      "id": "MHL036",
+      "name": "大吉岭风味雪冰",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2015-08-26—10-21推广",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "官方活动说明明确列名；与奶茶分条",
+      "sourceRefs": "S18"
+    },
+    {
+      "id": "MHL037",
+      "name": "抹茶风味奶茶",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2015-09-19官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "新潮亚洲茶系列；不自动等同现售抹茶牛奶",
+      "sourceRefs": "S18"
+    },
+    {
+      "id": "MHL038",
+      "name": "阿萨姆风味奶茶",
+      "category": "麦咖啡饮品",
+      "historicalEvidence": "2015-09-19官方文章",
+      "status": "历史销售已证实，当前供应未知",
+      "notes": "新潮亚洲茶系列；具体推广起止日期未单独确认",
+      "sourceRefs": "S18"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "title": "冬天吃冰淇淋需要理由？",
+      "url": "https://www.mcdonalds.com.cn/news/Genmaicha-Icecream"
+    },
+    {
+      "id": "S02",
+      "title": "红豆当季！第二份半价，和谁一起？",
+      "url": "https://www.mcdonalds.com.cn/news/red-bean-pie"
+    },
+    {
+      "id": "S03",
+      "title": "派DAY",
+      "url": "https://www.mcdonalds.com.cn/page/pie-day/"
+    },
+    {
+      "id": "S04",
+      "title": "限时10元：爱吃那么大鸡排？",
+      "url": "https://www.mcdonalds.com.cn/news/10-RMB-Big-Chicken-Cutlet"
+    },
+    {
+      "id": "S05",
+      "title": "大鸡排半价、樱花红莓华夫筒买1送1",
+      "url": "https://www.mcdonalds.com.cn/news/20200325-membership-day-promotion-Big-Chicken-Cutlet"
+    },
+    {
+      "id": "S06",
+      "title": "桃花甜筒上市，还有桃花运优惠券",
+      "url": "https://www.mcdonalds.com.cn/news/peach-blossom-cone-with-coupon"
+    },
+    {
+      "id": "S07",
+      "title": "麦当劳奶昔常驻回归，覆盖全国15城44店",
+      "url": "https://www.mcdonalds.com.cn/news/20260501-MCD-Milk-Shake"
+    },
+    {
+      "id": "S08",
+      "title": "2023年麦咖啡雪冰推广",
+      "url": "https://www.mcdonalds.com.cn/news/20230703-McCafe/"
+    },
+    {
+      "id": "S09",
+      "title": "全新水果茶登陆麦当劳，2018-05-26",
+      "url": "https://www.mcdonalds.com.cn/news/fruit-tea"
+    },
+    {
+      "id": "S10",
+      "title": "麦咖啡栗香系列，2018-01-10",
+      "url": "https://www.mcdonalds.com.cn/news/McCafe-31"
+    },
+    {
+      "id": "S11",
+      "title": "麦咖啡栗香系列，2016-01-02",
+      "url": "https://www.mcdonalds.com.cn/news/201601-mccafe-chestnut"
+    },
+    {
+      "id": "S12",
+      "title": "荔枝饮，2016-11-29",
+      "url": "https://www.mcdonalds.com.cn/news/lychee-special-drinks-for-the-winter"
+    },
+    {
+      "id": "S13",
+      "title": "正义联盟新品，2017-11-29",
+      "url": "https://www.mcdonalds.com.cn/news/Justice-League"
+    },
+    {
+      "id": "S14",
+      "title": "三文鱼汉堡，2016-08-14",
+      "url": "https://www.mcdonalds.com.cn/news/special-offer-of-salmon-burger-at-10"
+    },
+    {
+      "id": "S15",
+      "title": "黄金桂乌龙系列，2016-11-15",
+      "url": "https://www.mcdonalds.com.cn/news/mccafe-oolong-milk-tea-and-frappe"
+    },
+    {
+      "id": "S16",
+      "title": "榴莲千层与太妃曲奇拿铁，2016-09-28",
+      "url": "https://www.mcdonalds.com.cn/news/durian-cake-debut-at-mccafe-with-toffee-latte"
+    },
+    {
+      "id": "S17",
+      "title": "桃花风味拿铁与马卡龙，2016-03-09",
+      "url": "https://www.mcdonalds.com.cn/news/your-peach-blossom-in-latte"
+    },
+    {
+      "id": "S18",
+      "title": "新潮亚洲茶系列，2015-09-19",
+      "url": "https://www.mcdonalds.com.cn/news/tea-with-oriental-beauties"
+    }
+  ]
+}
