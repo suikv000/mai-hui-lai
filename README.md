@@ -72,6 +72,8 @@ python3 -m unittest discover -s tests -v
 
 ## 参赛状态
 
+报名 [Issue #854](https://github.com/M-China/mcd-developer-innovation-challenge/issues/854) 已提交，官方校验结果以 Issue 回复为准。
+
 附 [官方参赛声明](CONTEST_DECLARATION.md) 原文及所需接入说明。这是可运行本地演示。比赛规则与登记入口以 [官方挑战赛仓库](https://github.com/M-China/mcd-developer-innovation-challenge) 及其 [报名 Issues](https://github.com/M-China/mcd-developer-innovation-challenge/issues) 为准。仓库公开、报名登记和真实 MCP 联调是独立事项，不以其中一项代替其他项。未宣称使用 WorkBuddy，不借用参考项目测试或参赛成绩。
 
 ## 权利说明
